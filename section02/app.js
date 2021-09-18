@@ -1,19 +1,23 @@
-const http = require('http');
+const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
-app.use('/users',(req, res, next) => {
-    console.log('in the middleware');
-    res.send('<h1>add product</h1>');
-    //next();
+//import routes
+const adminRoutes = require('./routes/admin.js');
+const shopRoutes = require('./routes/shop.js');
+
+ 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname,'public')));
+
+//filtering with /admin
+app.use('/admin',adminRoutes);
+app.use(shopRoutes);
+
+//404 error page
+app.use((req, res, next) =>{
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
 });
 
-app.use('/', (req, res, next) => {
-    console.log('in the middleware');
-    res.send('<h1>default</h1>');
-});
-
-
-const server = http.createServer(app);
-
-server.listen(3000);
+app.listen(3000);
