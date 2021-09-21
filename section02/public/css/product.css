@@ -12,14 +12,22 @@
 .product__title {
     font-size: 1.2rem;
     text-align: center;
+    color: #8d8d8d;
 }
 
 .product__price {
     text-align: center;
-    color: #4d4d4d;
+    color: #9adff3;
+    margin-bottom: 0.5rem;
+}
+
+.product__rating {
+    text-align: center;
+    color: #8d8d8d;
     margin-bottom: 0.5rem;
 }
 
 .product__description {
     text-align: center;
+    color: #8d8d8d;
 }
