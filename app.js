@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
 const mongoConnect = require('./util/database').mongoConnect;
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const User = require('./models/user');
 
 const app = express();
