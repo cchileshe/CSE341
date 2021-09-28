@@ -1,17 +1,6 @@
 const mongodb = require('mongodb');
 const getDb = require('../util/database').getDb;
 
-const fs = require('fs');
-const path = require('path');
-
-const Cart = require('./cart');
-
-const p = path.join(
-  path.dirname(process.mainModule.filename),
-  'data',
-  'products.json'
-);
-
 class Product {
   constructor(title, price,rating, description, imageUrl, id, userId) {
     this.title = title;
