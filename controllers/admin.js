@@ -5,11 +5,9 @@ exports.getAddProduct = (req, res, next) => {
     pageTitle: 'Add Product',
     path: '/admin/add-product',
     editing: false
-    // formsCSS: true,
-    // productCSS: true,
-    // activeAddProduct: true
   });
 };
+
 
 exports.postAddProduct = (req, res, next) => {
   const title = req.body.title;
@@ -18,12 +16,13 @@ exports.postAddProduct = (req, res, next) => {
   const description = req.body.description;
   const rating = req.body.rating;
   const product = new Product(
-    null, 
+    
     title, 
-    imageUrl, 
-    description,
+    imageUrl,
+    price, 
     rating, 
-    price,
+    description,
+    null, 
     req.user._id
     );
     product
