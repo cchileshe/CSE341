@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
+const mongoConnect = require('./util/database');
 const port = process.env.PORT || 5000
 
 const app = express();
@@ -21,5 +22,7 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 app.use(errorController.get404);
+mongoConnect((client) => {
+    app.listen(port);
+});
 
-app.listen(port);
