@@ -10,8 +10,10 @@
                 <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
             </div>
             <h2><%= product.price %></h2>
-            <p><%= product.rating %></p>
+            <p><%= product.rating %>/10</p>
             <p><%= product.description %></p>
-            <%- include('../includes/add-to-cart.ejs') %>
+            <% if (isAuthenticated) { %>
+                <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+            <% } %>
         </main>
         <%- include('../includes/end.ejs') %>
