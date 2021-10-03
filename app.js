@@ -9,9 +9,9 @@ const csrf = require('csurf');
 const flash = require('connect-flash');
 
 const errorController = require('./controllers/error');
+const User = require('./models/user');
 
 const port = process.env.PORT || 3000;
-const User = require('./models/user');
 
 const MONGODB_URI = 'mongodb+srv://admin:admin@cse341.sm7ru.mongodb.net/shop?retryWrites=true';
 
